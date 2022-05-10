@@ -75,6 +75,28 @@ std::string declara() {
     return " ";
 }
 
+std::string citestev() {
+    if (cuv[0] == "citeste") {
+        if (cuv.size() == 1) {
+            printf("[EROARE] 'citeste' nu a fost folosit corect: ");
+            for (auto i : cuv)
+                printf("%s ", i.c_str());
+            printf("\nUtilizare: citeste {var_1} {var_2} ...");
+            exit(0);
+        }
+
+        std::string rtn;
+        for (int i = 1; i < cuv.size(); i++)
+            rtn += cuv[i] + ">>";
+        rtn.pop_back();
+        rtn.pop_back();
+
+        return "std::cin>>" + rtn + ";\n";
+    }
+
+    return " ";
+}
+
 std::string printeaza() {
     if (cuv[0] == "afiseaza") {
         if (cuv.size() > 2) {
@@ -224,6 +246,12 @@ void check(std::ofstream &write) {
         std::string printing = printeaza();
         if (printing != " ") {
             write << printing;
+            break;
+        }
+
+        std::string citeste = citestev();
+        if (citeste != " ") {
+            write << citeste;
             break;
         }
 
