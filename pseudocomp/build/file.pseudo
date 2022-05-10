@@ -1,7 +1,0 @@
-foloseste iostream
-
-main
-declara x int
-citeste x
-afiseaza x
-incheie
