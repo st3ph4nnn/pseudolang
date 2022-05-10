@@ -48,16 +48,23 @@ std::string declara() {
             printf("[EROARE] 'declara' nu a fost folosit corect: ");
             for (auto i : cuv)
                 printf("%s ", i.c_str());
-            printf("\nUtilizare: declara {nume} {tip}");
+            printf("\nUtilizare: declara {nume} {tip} {OPTIONAL: daca este vector, adaugati marimea}");
             exit(0);
         }
 
         std::string rtn = "";
 
         for (int i = 1; i < cuv.size() - 1; i++)
-            if (cuv[cuv.size() - 1].at(cuv[cuv.size() - 1].length() - 1) == 'v') {
-                cuv[cuv.size() - 1].pop_back();
-                rtn += (cuv[cuv.size() - 1] + " " + cuv[i] + "[505]" + ";\n");
+            if (cuv[cuv.size() - 2].at(cuv[cuv.size() - 2].length() - 1) == 'v') {
+                cuv[cuv.size() - 2].pop_back();
+                if (cuv.size() == 3) {
+                    printf("[EROARE] 'declara' nu a fost folosit corect: ");
+                    for (auto i : cuv)
+                        printf("%s ", i.c_str());
+                    printf("\nUtilizare: declara {nume} {tip} {marimea vectorului}");
+                    exit(0);
+                }
+                rtn += (cuv[cuv.size() - 2] + " " + cuv[i] + "[" + cuv[cuv.size() - 1] + "];\n");
             } else {
                 rtn += (cuv[cuv.size() - 1] + " " + cuv[i] + ";\n");
             }
@@ -211,6 +218,9 @@ std::string forstatement() {
 
 void check(std::ofstream &write) {
     for (int i = 0; i < cuv.size(); i++) {
+        if (cuv[i] == "//")
+            break;
+
         std::string printing = printeaza();
         if (printing != " ") {
             write << printing;
@@ -269,7 +279,7 @@ void check(std::ofstream &write) {
             break;
         }
 
-        if (cuv[i] == "sfarsit") {
+        if (cuv[i] == "sfarsit" || cuv[i] == "gata") {
             write << "}\n";
             break;
         }
