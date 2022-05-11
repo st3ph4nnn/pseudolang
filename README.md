@@ -39,7 +39,7 @@ si il pui intr-un folder. Dupa aceea creezi un fisier, de preferabil, cu extensi
 iar apoi incepi sa codezi. Vezi documentatia oficiala.  
 Pentru a compila/translata, parametrii sunt in felul urmator:  
 
-**pseudolang.exe (fisier.pseudo) (executabil.exe) (trans/compile)**  
+```pseudolang.exe (fisier.pseudo) (executabil.exe) (trans/compile)```
 
 trans - translateaza codul in fisierul temp.cpp    
 compile - compileaza codul in executabil.exe  
@@ -47,6 +47,9 @@ compile - compileaza codul in executabil.exe
 # Cum il pot compila?
 
 Modifica codul dupa dorinta ta, iar dupa aceea compileaza-l folosind:  
-g++ main.cpp -o ./build/pseudocomp.exe
+```g++ main.cpp -o ./build/pseudocomp.exe
+
 Sau rulati:
+
 mingw32-make.exe
+```
