@@ -48,7 +48,7 @@ std::string declara() {
             printf("[EROARE] 'declara' nu a fost folosit corect: ");
             for (auto i : cuv)
                 printf("%s ", i.c_str());
-            printf("\nUtilizare: declara {nume} {tip} {OPTIONAL: daca este vector, adaugati marimea}");
+            printf("\nUtilizare: declara {nume} {tip} \n");
             exit(0);
         }
 
@@ -61,7 +61,7 @@ std::string declara() {
                     printf("[EROARE] 'declara' nu a fost folosit corect: ");
                     for (auto i : cuv)
                         printf("%s ", i.c_str());
-                    printf("\nUtilizare: declara {nume} {tip} {marimea vectorului}");
+                    printf("\nUtilizare: declara {nume} {tip} {marimea vectorului}\n");
                     exit(0);
                 }
                 rtn += (cuv[cuv.size() - 2] + " " + cuv[i] + "[" + cuv[cuv.size() - 1] + "];\n");
@@ -81,7 +81,7 @@ std::string citestev() {
             printf("[EROARE] 'citeste' nu a fost folosit corect: ");
             for (auto i : cuv)
                 printf("%s ", i.c_str());
-            printf("\nUtilizare: citeste {var_1} {var_2} ...");
+            printf("\nUtilizare: citeste {var_1} {var_2} ...\n");
             exit(0);
         }
 
@@ -126,7 +126,7 @@ std::string ifstatement() {
             printf("[EROARE] 'daca' nu a fost folosit corect: ");
             for (auto i : cuv)
                 printf("%s ", i.c_str());
-            printf("\nUtilizare: daca *parametri* atunci *instructiuni* sfarsit");
+            printf("\nUtilizare: daca {parametri} atunci ... sfarsit\n");
             exit(0);
         }
     }
@@ -150,7 +150,7 @@ std::string whilestatement() {
             printf("[EROARE] 'cat timp' nu a fost folosit corect: ");
             for (auto i : cuv)
                 printf("%s ", i.c_str());
-            printf("\nUtilizare: cat timp *parametri* atunci *instructiuni* sfarsit");
+            printf("\nUtilizare: cat timp {parametri} atunci ... sfarsit\n");
             exit(0);
         }
     }
@@ -168,7 +168,7 @@ std::string dowhilestatement() {
             printf("[EROARE] 'repeta ... pana cand' nu a fost folosit corect: ");
             for (auto i : cuv)
                 printf("%s ", i.c_str());
-            printf("\nUtilizare: repeta *parametri* pana cand *conditie* sfarsit");
+            printf("\nUtilizare: repeta {parametri} ... pana cand {conditie} sfarsit\n");
             exit(0);
         }
 
@@ -226,7 +226,7 @@ std::string forstatement() {
             printf("[EROARE] 'pentru' nu a fost folosit corect: ");
             for (auto i : cuv)
                 printf("%s ", i.c_str());
-            printf("\nUtilizare: pentru *val. initiala* *conditie* *crestere* executa *instructiuni* sfarsit");
+            printf("\nUtilizare: pentru {val. initiala}, {conditie}, {crestere}, executa ... sfarsit\n");
             exit(0);
         }
     }
@@ -309,6 +309,11 @@ void check(std::ofstream &write) {
 
         if (cuv[i] == "incheie") {
             write << "return 0;\n}";
+            break;
+        }
+
+        if (cuv[i] == "inapoiaza") {
+            write << "return " + cuv[i + 1] + ";\n";
             break;
         }
 

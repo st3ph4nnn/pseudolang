@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
     printf("Traduc fisierul: %s\n", argv[1]);
     if (!strcmp(argv[3], "compile")) {
         compilez = true;
-        printf("In executabilul: %s\n", argv[2]);
+        printf("In executabilul: %s\n", argv[3]);
     }
 
     printf("\n- OUTPUT ------------------------------------\n");
@@ -31,7 +31,7 @@ int main(int argc, char *argv[]) {
     translate(file, out);
 
     if (compilez)
-        compile("trans.cpp", argv[2]);
+        compile("trans.cpp", argv[3]);
 
     return 0;
 }

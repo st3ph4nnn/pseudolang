@@ -4,16 +4,18 @@
 bool handle_arguments(int argc, char *argv[]) {
     switch (argc) {
     case 1: {
-        printf("[ERROR] Nici un argument nu a fost predat.\nUtilizare: pseudocomp (file.pseudo) (output.exe) (compile/trans)\n");
+        printf("[ERROR] Nici un argument nu a fost predat.\nUtilizare: pseudocomp (file.pseudo) (compile/trans) (OPTIONAL, DACA COMPILATI: output.exe)\n");
         return 0;
     }
     case 2: {
-        printf("[ERROR] Executabilul nu a fost predat ca argument.\nUtilizare: pseudocomp (file.pseudo) (output.exe) (compile/trans)\n");
+        printf("[ERROR] Vrei sa il transformi in cod C++ sau sa il compilezi?\nUtilizare: pseudocomp (file.pseudo) (compile/trans) (OPTIONAL, DACA COMPILATI: output.exe)\n");
         return 0;
     }
     case 3: {
-        printf("[ERROR] Vrei sa il transformi in cod C++ sau sa il compilezi?\nUtilizare: pseudocomp (file.pseudo) (output.exe) (compile/trans)\n");
-        return 0;
+        if (!strcmp(argv[2], "compile")) {
+            printf("[ERROR] Vrei sa il transformi in cod C++ sau sa il compilezi?\nUtilizare: (file.pseudo) (compile/trans) (OPTIONAL, DACA COMPILATI: output.exe)\n");
+            return 0;
+        }
     }
     }
 
