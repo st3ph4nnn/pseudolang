@@ -11,6 +11,25 @@ folosesti in fiecare zi, el poate fi folosit pentru (aproape) orice.
     
 Tin sa mentionez, ca, pseudolang poate si traduce pseudocod in C++.
 
+exemplu:
+
+`
+foloseste iostream
+std
+main
+afiseaza "5\n"
+incheie
+
+ECHIVALENT CU, DUPA TRADUCERE:
+
+#include <iostream>
+using namespace std;
+int main() {
+cout<<"5\n";
+return 0;
+}
+`
+
 # Cum il pot folosi?
 
 ## ATENTIE: DACA VRETI SA COMPILATI CODUL, AVETI NEVOIE DE G++: https://www.youtube.com/watch?v=Zcy981HhGw0  
