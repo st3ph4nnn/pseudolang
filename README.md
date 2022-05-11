@@ -29,3 +29,5 @@ compile - compileaza codul in executabil.exe
 
 Modifica codul dupa dorinta ta, iar dupa aceea compileaza-l folosind:  
 g++ main.cpp -o ./build/pseudocomp.exe
+Sau rulati:
+mingw32-make.exe

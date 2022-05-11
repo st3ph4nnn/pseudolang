@@ -131,13 +131,9 @@ std::string ifstatement() {
         }
     }
 
-    return " ";
-}
-
-std::string elsestatement() {
-    if (cuv[0] == "altfel") {
+    if (cuv[0] == "altfel")
         return "} else {\n";
-    }
+
     return " ";
 }
 
@@ -270,12 +266,6 @@ void check(std::ofstream &write) {
         std::string ifstate = ifstatement();
         if (ifstate != " ") {
             write << ifstate;
-            break;
-        }
-
-        std::string elsestate = elsestatement();
-        if (elsestate != " ") {
-            write << elsestate;
             break;
         }
 

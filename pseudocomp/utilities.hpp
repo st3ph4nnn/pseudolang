@@ -4,15 +4,15 @@
 bool handle_arguments(int argc, char *argv[]) {
     switch (argc) {
     case 1: {
-        printf("[ERROR] Nici un argument nu a fost predat.\nUtilizare: pseudoc (file.pseudo) (output.exe) (compile/trans)\n");
+        printf("[ERROR] Nici un argument nu a fost predat.\nUtilizare: pseudocomp (file.pseudo) (output.exe) (compile/trans)\n");
         return 0;
     }
     case 2: {
-        printf("[ERROR] Executabilul nu a fost predat ca argument.\nUtilizare: pseudoc (file.pseudo) (output.exe) (compile/trans)\n");
+        printf("[ERROR] Executabilul nu a fost predat ca argument.\nUtilizare: pseudocomp (file.pseudo) (output.exe) (compile/trans)\n");
         return 0;
     }
     case 3: {
-        printf("[ERROR] Vrei sa il transformi in cod C++ sau sa il compilezi?\nUtilizare: pseudoc (file.pseudo) (output.exe) (compile/trans)\n");
+        printf("[ERROR] Vrei sa il transformi in cod C++ sau sa il compilezi?\nUtilizare: pseudocomp (file.pseudo) (output.exe) (compile/trans)\n");
         return 0;
     }
     }
@@ -50,8 +50,7 @@ std::vector<std::string> split(std::string s) {
 
     while (std::getline(ss, item, ' ')) {
         trim(item);
-        if (item == "")
-            continue;
+        if (item == "") continue;
         str.push_back(item);
     }
 
@@ -68,9 +67,10 @@ void translate(std::ifstream &file, std::ofstream &write_file) {
 
     write_file.close();
     file.close();
+    printf("Traducerea a fost finalizata cu succes.\n");
 }
 
-void compile(const char *file, const char *out, bool remove_file) {
+void compile(const char *file, const char *out) {
     std::stringstream compile;
     compile << "g++ "
             << file
