@@ -13,22 +13,22 @@ Tin sa mentionez, ca, pseudolang poate si traduce pseudocod in C++.
 
 exemplu:
 
-`
-foloseste iostream
-std
-main
-afiseaza "5\n"
-incheie
+```c++
+foloseste iostream  
+std  
+main  
+    afiseaza "5\n"  
+incheie  
 
-ECHIVALENT CU, DUPA TRADUCERE:
+ECHIVALENT CU, DUPA TRADUCERE:  
 
-#include <iostream>
-using namespace std;
-int main() {
-cout<<"5\n";
-return 0;
-}
-`
+#include <iostream>  
+using namespace std;  
+int main() {  
+    cout<<"5\n";  
+    return 0;  
+}  
+```
 
 # Cum il pot folosi?
 
