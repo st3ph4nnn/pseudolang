@@ -47,7 +47,8 @@ compile - compileaza codul in executabil.exe
 # Cum il pot compila?
 
 Modifica codul dupa dorinta ta, iar dupa aceea compileaza-l folosind:  
-```g++ main.cpp -o ./build/pseudocomp.exe
+```
+g++ main.cpp -o ./build/pseudocomp.exe
 
 Sau rulati:
 
