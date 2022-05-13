@@ -1,25 +1,50 @@
 #pragma once
 #include "defines.hpp"
 
-bool handle_arguments(int argc, char *argv[]) {
-    switch (argc) {
-    case 1: {
-        printf("[ERROR] Nici un argument nu a fost predat.\nUtilizare: pseudocomp (file.pseudo) (compile/trans) (OPTIONAL, DACA COMPILATI: output.exe)\n");
-        return 0;
-    }
-    case 2: {
-        printf("[ERROR] Vrei sa il transformi in cod C++ sau sa il compilezi?\nUtilizare: pseudocomp (file.pseudo) (compile/trans) (OPTIONAL, DACA COMPILATI: output.exe)\n");
-        return 0;
-    }
-    case 3: {
-        if (!strcmp(argv[2], "compile")) {
-            printf("[ERROR] Vrei sa il transformi in cod C++ sau sa il compilezi?\nUtilizare: (file.pseudo) (compile/trans) (OPTIONAL, DACA COMPILATI: output.exe)\n");
-            return 0;
+namespace arguments {
+    bool compile = false;
+    std::string translate = " ";
+    bool copy = false;
+    std::string input_file;
+    std::string output_file;
+    bool info;
+}
+
+void handle_arguments(int argc, char *argv[]) {
+    const std::vector<std::string> args(argv + 1, argv + argc);
+
+    if (args.size() == 0)
+        goto utilizare_incorecta;
+
+    arguments::input_file = args[0];
+
+    if (args.size() > 1) {
+        for (int i = 1; i < args.size(); i++) {
+            if (args[i] == "-o") {
+                if (i + 1 > args.size() - 1)
+                    goto utilizare_incorecta;
+
+                arguments::compile = true;
+                arguments::output_file = args[i + 1];
+                i++;
+                continue;
+            }
+
+            if (args[i] == "-c")
+                arguments::copy = true;
+
+            if (args[i] == "-i")
+                arguments::info = true;
         }
     }
-    }
 
-    return 1;
+    return;
+
+utilizare_incorecta:
+    printf("\nUtilizare incorecta.\n");
+    printf("Utilizare: pseudoc (fisier.pseudo) {args...}\n");
+    printf("args: -o (output.exe); -c, -s\n\n");
+    exit(0);
 }
 
 bool open_source_file(const char *file_to_open, std::ifstream &file) {
@@ -62,14 +87,15 @@ std::vector<std::string> split(std::string s) {
 void translate(std::ifstream &file, std::ofstream &write_file) {
     printf("Traducerea are loc...\n");
     std::string line;
+
     while (std::getline(file, line)) {
         cuv = split(line);
         check(write_file);
     }
 
+    printf("Traducerea a fost finalizata cu succes.\n");
     write_file.close();
     file.close();
-    printf("Traducerea a fost finalizata cu succes.\n");
 }
 
 void compile(const char *file, const char *out) {
@@ -79,4 +105,18 @@ void compile(const char *file, const char *out) {
             << " -o " << out << " -w ";
 
     system(compile.str().c_str());
+}
+
+void title_ascii() {
+    printf("                              _                                     \n");
+    printf("                             | |                                     \n");
+    printf(" _ __   ___   ___  _   _   __| |  ___    ___  ___   _ __ ___   _ __  \n");
+    printf(R"(| '_ \ / __| / _ \| | | | / _` | / _ \  / __|/ _ \ | '_ ` _ \ | '_ \ )");
+    printf("\n");
+    printf(R"(| |_) |\__ \|  __/| |_| || (_| || (_) || (__| (_) || | | | | || |_) |)");
+    printf("\n");
+    printf(R"(| .__/ |___/ \___| \__,_| \__,_| \___/  \___|\___/ |_| |_| |_|| .__/ )");
+    printf("\n");
+    printf("| |                                                           | |    \n");
+    printf("|_|                                                           |_|    \n");
 }

@@ -9,6 +9,8 @@
 #include <string>
 #include <vector>
 
+#include "clip/clipboardxx.hpp"
+
 bool variabila(std::string x) {
     std::vector<std::string> variables = {
         "int",

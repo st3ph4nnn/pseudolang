@@ -1,26 +1,27 @@
 #include "defines.hpp"
 #include "utilities.hpp"
 
-int main(int argc, char *argv[]) {
-    bool compilez = false;
+clipboardxx::clipboard cb;
 
-    if (!handle_arguments(argc, argv))
-        return 0;
+int main(int argc, char *argv[]) {
+    handle_arguments(argc, argv);
+
+    title_ascii();
 
     printf("\n- PSEUDO-COMPILER ---------------------------\n");
     printf("https://github.com/st3ph4nnn/pseudolang\n");
-    printf("Versiunea curenta: 1.1\n");
+    printf("Versiunea curenta: 1.2\n");
     printf("Ultima versiune disponibila: https://bit.ly/3L0QyXD\n\n");
 
-    printf("[ATENTIE] Unele erori sunt semnalate de translatorul nostru, dar nu TOATE.\n\n");
-
     printf("Traduc fisierul: %s\n", argv[1]);
-    if (!strcmp(argv[3], "compile")) {
-        compilez = true;
+    if (arguments::compile)
         printf("In executabilul: %s\n", argv[3]);
-    }
 
-    printf("\n- OUTPUT ------------------------------------\n");
+    printf("\nCopiaza in clipboard (-c): %s\n", arguments::copy == 0 ? "NU" : "DA");
+    printf("Arata output-ul (-i): %s\n", arguments::info == 0 ? "NU" : "DA");
+    printf("Compileaza (-o {fisier.exe}): %s\n", arguments::compile == 0 ? "NU" : "DA");
+
+    printf("\n- LOGS --------------------------------------\n");
 
     std::ifstream file;
     if (!open_source_file(argv[1], file)) return 0;
@@ -30,8 +31,35 @@ int main(int argc, char *argv[]) {
 
     translate(file, out);
 
-    if (compilez)
-        compile("trans.cpp", argv[3]);
+    std::stringstream output;
+
+    std::ifstream outr("trans.cpp");
+
+    if (arguments::info) {
+        printf("\n- OUTPUT ------------------------------------\n");
+
+        printf("\nAm reusit sa traducem fisierul: %s\nRezultat:\n\n", argv[1]);
+
+        output << outr.rdbuf();
+        printf("%s\n\n", output.str().c_str());
+    }
+
+    if (arguments::copy) {
+        output.clear();
+        output << outr.rdbuf();
+        std::string f = output.str();
+        cb.copy(f);
+        printf("Am copiat rezultatul in clipboard.\n");
+    }
+
+    outr.close();
+    file.close();
+
+    if (arguments::compile) {
+        printf("\n- COMPILE -----------------------------------\n\n");
+        printf("[ATENTIE] Unele erori sunt semnalate de translatorul nostru, dar nu TOATE.\n\n");
+        compile("trans.cpp", arguments::output_file.c_str());
+    }
 
     return 0;
 }
