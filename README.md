@@ -36,15 +36,14 @@ int main() {
 
 Descarci ultima versiune de fisier executabil de la 'Releases'  
 si il pui intr-un folder. Dupa aceea creezi un fisier, de preferabil, cu extensia .pseudo  
-iar apoi incepi sa codezi. Vezi documentatia oficiala.  
+iar apoi incepi sa codezi. Vezi wiki-ul oficial.
 Pentru a compila/translata, parametrii sunt in felul urmator:  
 
-```pseudolang.exe (fisier.pseudo) (executabil.exe) (trans/compile)```
+```pseudolang.exe (fisier.pseudo) (args...)```
 
-trans - translateaza codul in fisierul temp.cpp    
-compile - compileaza codul in executabil.exe  
+Cititi mai intai, wiki-ul.
 
-# Cum il pot compila?
+# Cum pot compila compilatorul? (pleonasm)
 
 Modifica codul dupa dorinta ta, iar dupa aceea compileaza-l folosind:  
 ```
