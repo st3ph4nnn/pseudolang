@@ -41,7 +41,7 @@ Pentru a compila/translata, parametrii sunt in felul urmator:
 
 ```pseudolang.exe (fisier.pseudo) (args...)```
 
-Cititi mai intai, wiki-ul.
+Cititi mai intai, wiki-ul: https://github.com/st3ph4nnn/pseudolang/wiki
 
 # Cum pot compila compilatorul? (pleonasm)
 
