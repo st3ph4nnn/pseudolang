@@ -21,6 +21,7 @@ function get_mobile() {
 var mobile = get_mobile();
 
 if (mobile) {
+    console.log("mobile");
     $("#input-txt").hide();
     $("#output-txt").hide();
 }
