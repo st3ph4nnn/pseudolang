@@ -24,7 +24,7 @@ function declara() {
         if (cuv.length == 1 || variabila(cuv[1]) || !variabila(cuv[cuv.length - 1])) {
             console.error("[EROARE] 'declara' nu a fost folosit corect");
             console.log("\nUtilizare: declara {nume} {tip} \n");
-            exit(0);
+            return " ";
         }
 
         var rtn = "";
@@ -35,7 +35,7 @@ function declara() {
                 if (cuv.length == 3) {
                     console.log("[EROARE] 'declara' nu a fost folosit corect:");
                     console.log("\nUtilizare: declara {nume} {tip} {marimea vectorului}\n");
-                    exit(0);
+                    return " ";
                 }
                 rtn += (cuv[cuv.length - 2] + " " + cuv[i] + "[" + cuv[cuv.length - 1] + "];\n");
             } else {
@@ -53,7 +53,7 @@ function citestev() {
         if (cuv.length == 1) {
             console.error("[EROARE] 'citeste' nu a fost folosit corect:");
             console.log("\nUtilizare: citeste {var_1} {var_2} ...\n");
-            exit(0);
+            return " ";
         }
 
         var rtn = "";
@@ -95,7 +95,7 @@ function ifstatement() {
         } else {
             console.error("[EROARE] 'daca' nu a fost folosit corect");
             console.log("\nUtilizare: daca {parametri} atunci ... sfarsit\n");
-            exit(0);
+            return " ";
         }
     }
 
@@ -117,7 +117,7 @@ function whilestatement() {
         } else {
             console.error("[EROARE] 'cat timp' nu a fost folosit corect");
             console.log("\nUtilizare: cat timp {parametri} atunci ... sfarsit\n");
-            exit(0);
+            return " ";
         }
     }
 
@@ -133,7 +133,7 @@ function dowhilestatement() {
         if (cuv.length <= 2) {
             console.error("[EROARE] 'repeta ... pana cand' nu a fost folosit corect");
             console.log("\nUtilizare: repeta {parametri} ... pana cand {conditie} sfarsit\n");
-            exit(0);
+            return " ";
         }
 
         var rtn = "";
@@ -187,7 +187,7 @@ function forstatement() {
         } else {
             console.error("[EROARE] 'pentru' nu a fost folosit corect");
             console.log("\nUtilizare: pentru {val. initiala}, {conditie}, {crestere}, executa ... sfarsit\n");
-            exit(0);
+            return " ";
         }
     }
 
