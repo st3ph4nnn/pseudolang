@@ -1,5 +1,5 @@
 import translate from "https://st3ph4nnn.github.io/pseudolang/translate/translate.js"
-var beautifier = require('./beautify')
+var beautifier = require('https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.3/beautify.js')
 
 $("body").hide();
 
