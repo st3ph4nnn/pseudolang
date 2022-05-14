@@ -1,0 +1,47 @@
+body {
+    background-color: #282c34;
+    overflow: hidden;
+}
+
+#input {
+    position: absolute;
+    border: 2px solid #353d4e;
+    width: 48.5%;
+    height: 90%;
+    top: 8%;
+}
+
+#output {
+    left: 50.5%;
+    position: absolute;
+    border: 2px solid #353d4e;
+    width: 48.5%;
+    height: 90%;
+    top: 8%;
+}
+
+#input-txt {
+    bottom: 89%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    position: absolute;
+    color: whitesmoke;
+}
+
+#output-txt {
+    bottom: 89%;
+    left: 87%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    position: absolute;
+    color: whitesmoke;
+}
+
+#translate {
+    padding: 10px 40px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 15px;
+    bottom: 93%;
+}
