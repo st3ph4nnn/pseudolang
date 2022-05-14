@@ -1,14 +1,8 @@
-```
-                                               __          ___                                
-                                              /\ \        /\_ \                               
-             _____     ____     __   __  __   \_\ \    ___\//\ \      __      ___      __     
-            /\ '__`\  /',__\  /'__`\/\ \/\ \  /'_` \  / __`\\ \ \   /'__`\  /' _ `\  /'_ `\   
-            \ \ \L\ \/\__, `\/\  __/\ \ \_\ \/\ \L\ \/\ \L\ \\_\ \_/\ \L\.\_/\ \/\ \/\ \L\ \  
-             \ \ ,__/\/\____/\ \____\\ \____/\ \___,_\ \____//\____\ \__/.\_\ \_\ \_\ \____ \ 
-              \ \ \/  \/___/  \/____/ \/___/  \/__,_ /\/___/ \/____/\/__/\/_/\/_/\/_/\/___L\ \
-               \ \_\                                                                   /\____/
-                \/_/                                                                   \_/__/ 
-```
+# pseudolang
+
+EN: pseudolang is a compiler for my romanian pseudo language warriors out there.  
+I will continue by speaking my native language: romanian.  
+
 # Ce este pseudolang?
 
 pseudolang este un compilator pentru pseudo-cod.  
