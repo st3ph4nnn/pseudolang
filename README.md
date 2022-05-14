@@ -1,4 +1,4 @@
-<h1 align="center">pseudolang</h1>
+<h1 align="center" style="border-bottom:none;">pseudolang</h1>
 
 # Ce este pseudolang?
 
