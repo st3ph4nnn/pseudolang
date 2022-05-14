@@ -20,5 +20,5 @@ var button = document.getElementById('translate');
 
 button.addEventListener("click", () => {
     translate(input, output);
-    output.setValue(beautifier.js_beautify(output.getValue(), beautifier.defaultOptions()));
+    console.log(beautifier.js_beautify(output.getValue()));
 });
