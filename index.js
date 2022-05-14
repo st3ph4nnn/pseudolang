@@ -21,8 +21,8 @@ function get_mobile() {
 var mobile = get_mobile();
 
 if (mobile) {
-    $("input-txt").hide();
-    $("output-txt").hide();
+    $("#input-txt").hide();
+    $("#output-txt").hide();
 }
 
 var input = ace.edit("input");
