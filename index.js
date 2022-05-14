@@ -1,5 +1,5 @@
 import translate from "https://st3ph4nnn.github.io/pseudolang/translate/translate.js"
-var beautifier = require('https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.3/beautify.js')
+const { js_beautify } = require('https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.3/beautify.js')
 
 $("body").hide();
 
@@ -20,5 +20,5 @@ var button = document.getElementById('translate');
 
 button.addEventListener("click", () => {
     translate(input, output);
-    console.log(beautifier.js_beautify(output.getValue()));
+    console.log(js_beautify(output.getValue()));
 });
