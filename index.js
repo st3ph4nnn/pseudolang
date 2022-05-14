@@ -2,6 +2,29 @@ import translate from "./translate/translate.js"
 
 $("body").hide();
 
+function get_mobile() {
+    const toMatch = [
+        /Android/i,
+        /webOS/i,
+        /iPhone/i,
+        /iPad/i,
+        /iPod/i,
+        /BlackBerry/i,
+        /Windows Phone/i
+    ];
+    
+    return toMatch.some((toMatchItem) => {
+        return navigator.userAgent.match(toMatchItem);
+    });
+}
+
+var mobile = get_mobile();
+
+if (mobile) {
+    $("input-txt").hide();
+    $("output-txt").hide();
+}
+
 var input = ace.edit("input");
 input.setTheme("ace/theme/one_dark");
 input.setShowPrintMargin(false);
