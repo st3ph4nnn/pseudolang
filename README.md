@@ -1,8 +1,14 @@
-# pseudolang
-
-EN: pseudolang is a compiler for my romanian pseudo language warriors out there.  
-I will continue by speaking my native language: romanian.  
-
+```
+                                               __          ___                                
+                                              /\ \        /\_ \                               
+             _____     ____     __   __  __   \_\ \    ___\//\ \      __      ___      __     
+            /\ '__`\  /',__\  /'__`\/\ \/\ \  /'_` \  / __`\\ \ \   /'__`\  /' _ `\  /'_ `\   
+            \ \ \L\ \/\__, `\/\  __/\ \ \_\ \/\ \L\ \/\ \L\ \\_\ \_/\ \L\.\_/\ \/\ \/\ \L\ \  
+             \ \ ,__/\/\____/\ \____\\ \____/\ \___,_\ \____//\____\ \__/.\_\ \_\ \_\ \____ \ 
+              \ \ \/  \/___/  \/____/ \/___/  \/__,_ /\/___/ \/____/\/__/\/_/\/_/\/_/\/___L\ \
+               \ \_\                                                                   /\____/
+                \/_/                                                                   \_/__/ 
+```
 # Ce este pseudolang?
 
 pseudolang este un compilator pentru pseudo-cod.  
@@ -36,15 +42,14 @@ int main() {
 
 Descarci ultima versiune de fisier executabil de la 'Releases'  
 si il pui intr-un folder. Dupa aceea creezi un fisier, de preferabil, cu extensia .pseudo  
-iar apoi incepi sa codezi. Vezi documentatia oficiala.  
+iar apoi incepi sa codezi. Vezi wiki-ul oficial.
 Pentru a compila/translata, parametrii sunt in felul urmator:  
 
-```pseudolang.exe (fisier.pseudo) (executabil.exe) (trans/compile)```
+```pseudolang.exe (fisier.pseudo) (args...)```
 
-trans - translateaza codul in fisierul temp.cpp    
-compile - compileaza codul in executabil.exe  
+Cititi mai intai, wiki-ul: https://github.com/st3ph4nnn/pseudolang/wiki
 
-# Cum il pot compila?
+# Cum pot compila compilatorul? (pleonasm)
 
 Modifica codul dupa dorinta ta, iar dupa aceea compileaza-l folosind:  
 ```
