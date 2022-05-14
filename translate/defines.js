@@ -19,7 +19,6 @@ function variabila(vr) {
 }
 
 function declara() {
-    console.log(cuv);
     if (cuv[0] == "declara") {
         if (cuv.length == 1 || variabila(cuv[1]) || !variabila(cuv[cuv.length - 1])) {
             console.error("[EROARE] 'declara' nu a fost folosit corect");
@@ -254,9 +253,7 @@ export default function check(cuvi) {
     if (cuv[i] == "std")
         return "using namespace std;\n";
 
-    if (i == cuv.length - 1) {
-        console.log(cuv[i]);
+    if (i == cuv.length - 1)
         return cuv.join("") + ";\n";
-    }
     }
 }
