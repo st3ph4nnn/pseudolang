@@ -1,4 +1,4 @@
-import translate from "https://st3ph4nnn.github.io/pseudolang/translate/translate.js"
+import translate from "./translate/translate.js"
 
 $("body").hide();
 
