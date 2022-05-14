@@ -1,5 +1,5 @@
 import translate from "https://st3ph4nnn.github.io/pseudolang/translate/translate.js"
-import { defaultOptions, js_beautify } from "./beautify";
+import { defaultOptions, js_beautify } from "./beautify.js";
 const { beautify } = js_beautify
 $("body").hide();
 
