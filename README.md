@@ -8,10 +8,6 @@
 | |                                              __/ |
 |_|                                             |___/ 
 ```
-# pseudolang
-
-EN: pseudolang is a compiler for my romanian pseudo language warriors out there.  
-I will continue by speaking my native language: romanian.  
 
 # Ce este pseudolang?
 
