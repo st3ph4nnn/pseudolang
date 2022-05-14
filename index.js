@@ -1,6 +1,6 @@
 import translate from "https://st3ph4nnn.github.io/pseudolang/translate/translate.js"
-import { defaultOptions, js_beautify } from "./beautify.js";
-const { beautify } = js_beautify
+var beautifier = require('./beautify')
+
 $("body").hide();
 
 var input = ace.edit("input");
@@ -20,5 +20,5 @@ var button = document.getElementById('translate');
 
 button.addEventListener("click", () => {
     translate(input, output);
-    output.setValue(js_beautify(output.getValue(), defaultOptions()));
+    output.setValue(beautifier.js_beautify(output.getValue(), beautifier.defaultOptions()));
 });
