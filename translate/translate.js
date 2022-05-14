@@ -1,4 +1,4 @@
-import check from "./translate/defines.js"
+import check from "./defines.js"
 
 export default function translate(input, output) {
     var split = input.getValue().split(/\n/);
