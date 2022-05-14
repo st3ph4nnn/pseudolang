@@ -133,10 +133,9 @@
       return beautifier.beautify();
     }
     
-    module.exports = js_beautify;
-    module.exports = defaultOptions = function() {
-      return new Options();
-    };
+    module.exports = { js_beautify, defaultOptions = function() {
+        return new Options();
+      }};
     
     
     /***/ }),
