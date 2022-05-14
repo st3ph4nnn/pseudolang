@@ -1,5 +1,4 @@
-<h1 align="center" style="font-size:100px;">pseudolang</h1>
-
+<font size="1"><h1 align="center">pseudolang</h1></font>
 # Ce este pseudolang?
 
 pseudolang este un compilator pentru pseudo-cod.  
