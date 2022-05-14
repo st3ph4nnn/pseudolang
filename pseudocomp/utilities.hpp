@@ -3,10 +3,10 @@
 
 namespace arguments {
     bool compile = false;
-    std::string translate = " ";
     bool copy = false;
     std::string input_file;
     std::string output_file;
+    std::string write_file = "trans.cpp";
     bool info;
 }
 
@@ -26,6 +26,15 @@ void handle_arguments(int argc, char *argv[]) {
 
                 arguments::compile = true;
                 arguments::output_file = args[i + 1];
+                i++;
+                continue;
+            }
+
+            if (args[i] == "-t") {
+                if (i + 1 > args.size() - 1)
+                    goto utilizare_incorecta;
+
+                arguments::write_file = args[i + 1];
                 i++;
                 continue;
             }
@@ -93,7 +102,7 @@ void translate(std::ifstream &file, std::ofstream &write_file) {
         check(write_file);
     }
 
-    printf("Traducerea a fost finalizata cu succes.\n");
+    printf("Traducerea a fost finalizata cu succes.\n\n");
     write_file.close();
     file.close();
 }

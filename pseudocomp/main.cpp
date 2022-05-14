@@ -18,8 +18,9 @@ int main(int argc, char *argv[]) {
         printf("In executabilul: %s\n", argv[3]);
 
     printf("\nCopiaza in clipboard (-c): %s\n", arguments::copy == 0 ? "NU" : "DA");
-    printf("Arata output-ul (-i): %s\n", arguments::info == 0 ? "NU" : "DA");
+    printf("Arata rezultatul (-i): %s\n", arguments::info == 0 ? "NU" : "DA");
     printf("Compileaza (-o {fisier.exe}): %s\n", arguments::compile == 0 ? "NU" : "DA");
+    printf("Locatia rezultatului: %s (-t {fisier.cpp}):\n", arguments::write_file.c_str());
 
     printf("\n- LOGS --------------------------------------\n");
 
@@ -27,13 +28,13 @@ int main(int argc, char *argv[]) {
     if (!open_source_file(argv[1], file)) return 0;
 
     std::ofstream out;
-    if (!open_write_file("trans.cpp", out)) return 0;
+    if (!open_write_file(arguments::write_file.c_str(), out)) return 0;
 
     translate(file, out);
 
     std::stringstream output;
 
-    std::ifstream outr("trans.cpp");
+    std::ifstream outr(arguments::write_file);
 
     if (arguments::info) {
         printf("\n- OUTPUT ------------------------------------\n");
@@ -58,7 +59,7 @@ int main(int argc, char *argv[]) {
     if (arguments::compile) {
         printf("\n- COMPILE -----------------------------------\n\n");
         printf("[ATENTIE] Unele erori sunt semnalate de translatorul nostru, dar nu TOATE.\n\n");
-        compile("trans.cpp", arguments::output_file.c_str());
+        compile(arguments::write_file.c_str(), arguments::output_file.c_str());
     }
 
     return 0;
