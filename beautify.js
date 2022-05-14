@@ -134,7 +134,7 @@
     }
     
     module.exports = js_beautify;
-    module.exports.defaultOptions = function() {
+    module.exports = defaultOptions = function() {
       return new Options();
     };
     
