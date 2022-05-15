@@ -38,7 +38,9 @@ int main() {
 
 # Cum il pot folosi?
 
-## ATENTIE: DACA VRETI SA COMPILATI CODUL, AVETI NEVOIE DE G++: https://www.youtube.com/watch?v=Zcy981HhGw0  
+## Online: st3ph4nnn.github.io/pseudolang/
+## Offline
+### ATENTIE: DACA VRETI SA COMPILATI CODUL, AVETI NEVOIE DE G++: https://www.youtube.com/watch?v=Zcy981HhGw0  
 
 Descarci ultima versiune de fisier executabil de la 'Releases'  
 si il pui intr-un folder. Dupa aceea creezi un fisier, de preferabil, cu extensia .pseudo  
