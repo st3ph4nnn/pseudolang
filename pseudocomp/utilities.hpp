@@ -50,9 +50,9 @@ void handle_arguments(int argc, char *argv[]) {
     return;
 
 utilizare_incorecta:
-    printf("\nUtilizare incorecta.\n");
+    printf("\n[ERROR] Utilizare incorecta.\n");
     printf("Utilizare: pseudoc (fisier.pseudo) {args...}\n");
-    printf("args: -o (output.exe); -c, -s\n\n");
+    printf("args (OPTIONAL): -o (output.exe); -c, -s, -i\n\n");
     exit(0);
 }
 
