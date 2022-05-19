@@ -37,7 +37,7 @@ int main() {
 
 # Cum il pot folosi?
 
-## Online: st3ph4nnn.github.io/pseudolang/
+## Online: st3ph4nnn.github.io/pseudolang/ (NU ESTE UPDATAT MEREU!)
 ## Offline
 ### ATENTIE: DACA VRETI SA COMPILATI CODUL, AVETI NEVOIE DE G++: https://www.youtube.com/watch?v=Zcy981HhGw0  
 
