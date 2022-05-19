@@ -54,6 +54,9 @@ Cititi mai intai, wiki-ul: https://github.com/st3ph4nnn/pseudolang/wiki
 # Cum pot compila compilatorul? (pleonasm)
 
 Modifica codul dupa dorinta ta, iar dupa aceea compileaza-l folosind:  
+
+## Windows
+
 ```
 g++ main.cpp -o ./build/pseudocomp.exe
 
@@ -61,3 +64,12 @@ Sau rulati:
 
 mingw32-make.exe
 ```
+
+## Ubuntu
+
+Mai intai, instalati acest pachet:  
+```sudo apt-get install libxtst-dev```  
+
+Mai apoi, NEAPARAT trebuie sa il compilati in acest mod:
+```make OS=LINUX``` (in folderul unde e main.cpp)
+
