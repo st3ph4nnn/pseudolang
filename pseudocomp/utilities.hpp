@@ -97,6 +97,8 @@ void translate(std::ifstream &file, std::ofstream &write_file) {
     printf("Traducerea are loc...\n");
     std::string line;
 
+    write_file << "using namespace std;\n";
+
     while (std::getline(file, line)) {
         cuv = split(line);
         check(write_file);

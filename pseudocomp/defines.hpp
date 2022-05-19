@@ -14,17 +14,12 @@
 bool variabila(std::string x) {
     std::vector<std::string> variables = {
         "int",
-        "intv",
         "bool",
-        "boolv",
         "double",
-        "doublev",
         "float",
-        "floatv",
         "string",
-        "stringv",
         "char",
-        "charv"};
+    };
     return std::count(variables.begin(), variables.end(), x);
 }
 
@@ -50,26 +45,14 @@ std::string declara() {
             printf("[EROARE] 'declara' nu a fost folosit corect: ");
             for (auto i : cuv)
                 printf("%s ", i.c_str());
-            printf("\nUtilizare: declara {nume} {tip} \n");
+            printf("\nUtilizare: declara {...} {tip} \n");
             exit(0);
         }
 
         std::string rtn = "";
 
         for (int i = 1; i < cuv.size() - 1; i++)
-            if (cuv[cuv.size() - 2].at(cuv[cuv.size() - 2].length() - 1) == 'v') {
-                cuv[cuv.size() - 2].pop_back();
-                if (cuv.size() == 3) {
-                    printf("[EROARE] 'declara' nu a fost folosit corect: ");
-                    for (auto i : cuv)
-                        printf("%s ", i.c_str());
-                    printf("\nUtilizare: declara {nume} {tip} {marimea vectorului}\n");
-                    exit(0);
-                }
-                rtn += (cuv[cuv.size() - 2] + " " + cuv[i] + "[" + cuv[cuv.size() - 1] + "];\n");
-            } else {
-                rtn += (cuv[cuv.size() - 1] + " " + cuv[i] + ";\n");
-            }
+            rtn += (cuv[cuv.size() - 1] + " " + cuv[i] + ";\n");
 
         return rtn;
     }

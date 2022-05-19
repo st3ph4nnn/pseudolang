@@ -21,7 +21,6 @@ exemplu:
 
 ```c++
 foloseste iostream  
-std  
 main  
     afiseaza "5\n"  
 incheie  
@@ -70,6 +69,6 @@ mingw32-make.exe
 Mai intai, instalati acest pachet:  
 ```sudo apt-get install libxtst-dev```  
 
-Mai apoi, NEAPARAT trebuie sa il compilati in acest mod:
+Mai apoi, NEAPARAT trebuie sa il compilati in acest mod:  
 ```make OS=LINUX``` (in folderul unde e main.cpp)
 
