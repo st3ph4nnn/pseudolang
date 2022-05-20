@@ -29,17 +29,7 @@ function declara() {
         var rtn = "";
 
         for (var i = 1; i < cuv.length - 1; i++)
-            if (cuv[cuv.length - 2][cuv[cuv.length - 2].length - 1] == 'v') {
-                cuv[cuv.length - 2] = cuv[cuv.length - 2].slice(0, -1);
-                if (cuv.length == 3) {
-                    console.log("[EROARE] 'declara' nu a fost folosit corect:");
-                    console.log("\nUtilizare: declara {nume} {tip} {marimea vectorului}\n");
-                    return " ";
-                }
-                rtn += (cuv[cuv.length - 2] + " " + cuv[i] + "[" + cuv[cuv.length - 1] + "];\n");
-            } else {
-                rtn += (cuv[cuv.length - 1] + " " + cuv[i] + ";\n");
-            }
+            rtn += (cuv[cuv.length - 1] + " " + cuv[i] + ";\n");
 
         return rtn;
     }
@@ -124,14 +114,14 @@ function whilestatement() {
 }
 
 function dowhilestatement() {
-    if (cuv[0] == "repeta") {
+    if (cuv[0] == "executa") {
         return "do \n{\n";
     }
 
     if (cuv[0] == "pana" && cuv[1] == "cand") {
         if (cuv.length <= 2) {
-            console.error("[EROARE] 'repeta ... pana cand' nu a fost folosit corect");
-            console.log("\nUtilizare: repeta {parametri} ... pana cand {conditie} sfarsit\n");
+            console.error("[EROARE] 'executa ... pana cand' nu a fost folosit corect");
+            console.log("\nUtilizare: executa (instructiuni) ... pana cand (conditie) sfarsit\n");
             return " ";
         }
 
@@ -249,9 +239,6 @@ export default function check(cuvi) {
 
     if (cuv[i] == "inapoiaza")
         return "return " + cuv[i + 1] + ";\n";
-
-    if (cuv[i] == "std")
-        return "using namespace std;\n";
 
     if (i == cuv.length - 1)
         return cuv.join("") + ";\n";
