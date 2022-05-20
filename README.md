@@ -39,7 +39,7 @@ int main() {
 
 ## Online: st3ph4nnn.github.io/pseudolang/
 ## Offline
-### ATENTIE: DACA VRETI SA COMPILATI CODUL, AVETI NEVOIE DE G++: https://www.youtube.com/watch?v=Zcy981HhGw0  
+### ATENTIE: DACA VRETI SA COMPILATI CODUL, AVETI NEVOIE DE G++: https://www.youtube.com/watch?v=Zcy981HhGw0 
 
 Descarci ultima versiune de fisier executabil de la 'Releases'  
 si il pui intr-un folder. Dupa aceea creezi un fisier, de preferabil, cu extensia .pseudo  
@@ -54,21 +54,11 @@ Cititi mai intai, wiki-ul: https://github.com/st3ph4nnn/pseudolang/wiki
 
 Modifica codul dupa dorinta ta, iar dupa aceea compileaza-l folosind:  
 
-## Windows
-
 ```
-g++ main.cpp -o ./build/pseudocomp.exe
+Linux: 
+sudo apt install make
+make OS=LINUX (in folderul cu Makefile)
 
-Sau rulati:
-
-mingw32-make.exe
+Windows:
+mingw32-make.exe (in folderul cu Makefile)
 ```
-
-## Ubuntu
-
-Mai intai, instalati acest pachet:  
-```sudo apt-get install libxtst-dev```  
-
-Mai apoi, NEAPARAT trebuie sa il compilati in acest mod:  
-```make OS=LINUX``` (in folderul unde e main.cpp)
-
