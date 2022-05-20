@@ -9,8 +9,6 @@
 #include <string>
 #include <vector>
 
-#include "clip/clipboardxx.hpp"
-
 bool variabila(std::string x) {
     std::vector<std::string> variables = {
         "int",
@@ -144,16 +142,16 @@ std::string whilestatement() {
 }
 
 std::string dowhilestatement() {
-    if (cuv[0] == "repeta") {
+    if (cuv[0] == "executa") {
         return "do \n{\n";
     }
 
     if (cuv[0] == "pana" && cuv[1] == "cand") {
         if (cuv.size() <= 2) {
-            printf("[EROARE] 'repeta ... pana cand' nu a fost folosit corect: ");
+            printf("[EROARE] 'executa ... pana cand' nu a fost folosit corect: ");
             for (auto i : cuv)
                 printf("%s ", i.c_str());
-            printf("\nUtilizare: repeta {parametri} ... pana cand {conditie} sfarsit\n");
+            printf("\nUtilizare: executa (instructiuni) ... pana cand {conditie} sfarsit\n");
             exit(0);
         }
 

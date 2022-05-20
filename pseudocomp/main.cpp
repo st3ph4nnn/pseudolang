@@ -1,8 +1,6 @@
 #include "defines.hpp"
 #include "utilities.hpp"
 
-clipboardxx::clipboard cb;
-
 int main(int argc, char *argv[]) {
     handle_arguments(argc, argv);
 
@@ -17,8 +15,7 @@ int main(int argc, char *argv[]) {
     if (arguments::compile)
         printf("In executabilul: %s\n", argv[3]);
 
-    printf("\nCopiaza in clipboard (-c): %s\n", arguments::copy == 0 ? "NU" : "DA");
-    printf("Arata rezultatul (-i): %s\n", arguments::info == 0 ? "NU" : "DA");
+    printf("\nArata rezultatul (-i): %s\n", arguments::info == 0 ? "NU" : "DA");
     printf("Compileaza (-o {fisier.exe}): %s\n", arguments::compile == 0 ? "NU" : "DA");
     printf("Locatia rezultatului: %s (-t {fisier.cpp}):\n", arguments::write_file.c_str());
 
@@ -43,14 +40,6 @@ int main(int argc, char *argv[]) {
 
         output << outr.rdbuf();
         printf("%s\n\n", output.str().c_str());
-    }
-
-    if (arguments::copy) {
-        output.clear();
-        output << outr.rdbuf();
-        std::string f = output.str();
-        cb.copy(f);
-        printf("Am copiat rezultatul in clipboard.\n");
     }
 
     outr.close();

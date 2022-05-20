@@ -3,7 +3,6 @@
 
 namespace arguments {
     bool compile = false;
-    bool copy = false;
     std::string input_file;
     std::string output_file;
     std::string write_file = "trans.cpp";
@@ -38,9 +37,6 @@ void handle_arguments(int argc, char *argv[]) {
                 i++;
                 continue;
             }
-
-            if (args[i] == "-c")
-                arguments::copy = true;
 
             if (args[i] == "-i")
                 arguments::info = true;
