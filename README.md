@@ -52,7 +52,7 @@ Cititi mai intai, wiki-ul: https://github.com/st3ph4nnn/pseudolang/wiki
 
 # Cum pot compila compilatorul? (pleonasm)
 
-Modifica codul dupa dorinta ta, iar dupa aceea compileaza-l folosind:  
+Modifica codul dupa dorinta ta, iar dupa aceea compileaza-l (in terminal, desigur) folosind:  
 
 ```
 Linux: 
