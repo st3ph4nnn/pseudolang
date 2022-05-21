@@ -11,7 +11,8 @@
 ```
 # Ce este pseudolang?
 
-pseudolang este un compilator pentru pseudo-cod.  
+pseudolang este o variatie a pseudo-cod-ului din ziua de astazi, putin modificata.
+pseudocomp este "compilatorul" pentru pseudolang.
 Avandu-si propia documentatie, si o similaritate de 80% cu pseudo-cod-ul pe care il  
 folosesti in fiecare zi, el poate fi folosit pentru (aproape) orice.  
     
