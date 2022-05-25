@@ -1,0 +1,5 @@
+foloseste iostream
+
+main
+    afiseaza "5\n"
+incheie

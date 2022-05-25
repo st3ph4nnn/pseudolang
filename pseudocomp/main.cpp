@@ -1,10 +1,20 @@
-#include "defines.hpp"
+#include "parser.hpp"
 #include "utilities.hpp"
 
 int main(int argc, char *argv[]) {
     handle_arguments(argc, argv);
 
-    title_ascii();
+    printf("                              _                                     \n");
+    printf("                             | |                                     \n");
+    printf(" _ __   ___   ___  _   _   __| |  ___    ___  ___   _ __ ___   _ __  \n");
+    printf(R"(| '_ \ / __| / _ \| | | | / _` | / _ \  / __|/ _ \ | '_ ` _ \ | '_ \ )");
+    printf("\n");
+    printf(R"(| |_) |\__ \|  __/| |_| || (_| || (_) || (__| (_) || | | | | || |_) |)");
+    printf("\n");
+    printf(R"(| .__/ |___/ \___| \__,_| \__,_| \___/  \___|\___/ |_| |_| |_|| .__/ )");
+    printf("\n");
+    printf("| |                                                           | |    \n");
+    printf("|_|                                                           |_|    \n");
 
     printf("\n- PSEUDO-COMPILER ---------------------------\n");
     printf("https://github.com/st3ph4nnn/pseudolang\n");
@@ -35,9 +45,7 @@ int main(int argc, char *argv[]) {
 
     if (arguments::info) {
         printf("\n- OUTPUT ------------------------------------\n");
-
         printf("\nAm reusit sa traducem fisierul: %s\nRezultat:\n\n", argv[1]);
-
         output << outr.rdbuf();
         printf("%s\n\n", output.str().c_str());
     }

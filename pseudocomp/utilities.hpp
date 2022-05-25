@@ -1,5 +1,5 @@
 #pragma once
-#include "defines.hpp"
+#include "includes.hpp"
 
 namespace arguments {
     bool compile = false;
@@ -46,7 +46,7 @@ void handle_arguments(int argc, char *argv[]) {
     return;
 
 utilizare_incorecta:
-    printf("\n[ERROR] Utilizare incorecta.\n");
+    printf("\n[EROARE] Utilizare incorecta.\n");
     printf("Utilizare: pseudoc (fisier.pseudo) {args...}\n");
     printf("args (OPTIONAL): -o (output.exe); -c, -s, -i\n\n");
     exit(0);
@@ -55,7 +55,7 @@ utilizare_incorecta:
 bool open_source_file(const char *file_to_open, std::ifstream &file) {
     file.open(file_to_open);
     if (!file.is_open()) {
-        printf("[ERROR] Nu am putut deschide fisierul: %s\n", file_to_open);
+        printf("[EROARE] Nu am putut deschide fisierul: %s\n", file_to_open);
         return 0;
     }
     return 1;
@@ -64,15 +64,10 @@ bool open_source_file(const char *file_to_open, std::ifstream &file) {
 bool open_write_file(const char *file_to_open, std::ofstream &file) {
     file.open(file_to_open);
     if (!file.is_open()) {
-        printf("[FATAL ERROR] Nu am putut deschide fisierul: %s\n", file_to_open);
+        printf("[EROARE] Nu am putut deschide fisierul: %s\n", file_to_open);
         return 0;
     }
     return 1;
-}
-
-std::string trim(const std::string &s) {
-    size_t start = s.find_first_not_of(" \n\r\t\f\v");
-    return (start == std::string::npos) ? "" : s.substr(start);
 }
 
 std::vector<std::string> split(std::string s) {
@@ -81,7 +76,6 @@ std::vector<std::string> split(std::string s) {
     std::string item;
 
     while (std::getline(ss, item, ' ')) {
-        trim(item);
         if (item == "") continue;
         str.push_back(item);
     }
@@ -90,17 +84,14 @@ std::vector<std::string> split(std::string s) {
 }
 
 void translate(std::ifstream &file, std::ofstream &write_file) {
-    printf("Traducerea are loc...\n");
+    printf("[INFO] Traducerea are loc...\n");
     std::string line;
 
-    write_file << "using namespace std;\n";
-
     while (std::getline(file, line)) {
-        cuv = split(line);
-        check(write_file);
+        parse(write_file, split(line));
     }
 
-    printf("Traducerea a fost finalizata cu succes.\n\n");
+    printf("[SUCCES] Traducerea a fost finalizata cu succes.\n\n");
     write_file.close();
     file.close();
 }
@@ -111,7 +102,9 @@ void compile(const char *file, const char *out) {
             << file
             << " -o " << out << " -w ";
 
-    system(compile.str().c_str());
+    bool compiled = system(compile.str().c_str());
+
+    printf((!compiled ? "[COMPILE] Nu am reusit sa compilam fisierul." : "[COMPILE] Fisierul a fost compilat cu succes."));
 }
 
 void title_ascii() {
