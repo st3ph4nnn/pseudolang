@@ -23,7 +23,7 @@ namespace io {
     bool run(std::string &wr, std::vector<std::string> line) {
         ln = line;
         wr = printeaza();
-        
+
         if (wr != " ")
             return true;
         

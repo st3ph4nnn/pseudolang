@@ -102,7 +102,7 @@ void compile(const char *file, const char *out) {
             << file
             << " -o " << out << " -w ";
 
-    bool compiled = system(compile.str().c_str());
+    bool compiled = !(system(compile.str().c_str()));
 
     printf((!compiled ? "[COMPILE] Nu am reusit sa compilam fisierul." : "[COMPILE] Fisierul a fost compilat cu succes."));
 }

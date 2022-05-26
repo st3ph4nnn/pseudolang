@@ -1,5 +1,2 @@
-foloseste iostream
-
-main
-    afiseaza "5\n"
-incheie
+declara x y z int
+declara x int 

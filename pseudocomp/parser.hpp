@@ -12,7 +12,6 @@ void parse(std::ofstream &write, std::vector<std::string> ln) {
     }
 
     if (variables::run(str, ln)) {
-
         write << str;
         return;
     }

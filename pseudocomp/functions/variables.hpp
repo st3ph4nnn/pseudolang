@@ -27,10 +27,17 @@ namespace variables {
                 exit(0);
             }
 
-            std::string rtn = "";
+            std::string rtn = (ln[ln.size()-1] + " ");
+
+            if (ln.size() == 3)
+                return (ln[2] + " " + ln[1] + ";\n");
 
             for (int i = 1; i < ln.size() - 1; i++)
-                rtn += (ln[ln.size() - 1] + " " + ln[i] + ";\n");
+                rtn += ln[i] + ", ";
+            
+            rtn.pop_back();
+            rtn.pop_back();
+            rtn += ";\n";
 
             return rtn;
         }
