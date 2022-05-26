@@ -6,6 +6,7 @@
 
 void parse(std::ofstream &write, std::vector<std::string> ln) {
     std::string str = "";
+
     if (statements::run(str, ln)) {
         write << str;
         return;

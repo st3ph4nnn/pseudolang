@@ -131,28 +131,24 @@ namespace statements {
 
         wr = ifstatement();
         if (wr != " ") {
-            printf("%s\n", wr.c_str());
             return true;
         }
 
         wr = whileloop();
         if (wr != " ") {
-            printf("%s\n", wr.c_str());
             return true;
         }
 
         wr = forstatement();
         if (wr != " ") {
-            printf("%s\n", wr.c_str());
             return true;
         }
 
         wr = dowhilestatement();
         if (wr != " ") {
-            printf("%s\n", wr.c_str());
             return true;
         }
-    
+
         return false;
     }
 

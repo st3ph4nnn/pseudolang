@@ -76,8 +76,8 @@ std::vector<std::string> split(std::string s) {
     std::string item;
 
     while (std::getline(ss, item, ' ')) {
-        if (item == "") continue;
-        str.push_back(item);
+        if (item != "" || item != " " || item != "\t")
+            str.push_back(item);
     }
 
     return str;
@@ -88,7 +88,23 @@ void translate(std::ifstream &file, std::ofstream &write_file) {
     std::string line;
 
     while (std::getline(file, line)) {
-        parse(write_file, split(line));
+        if (line.length() == 0) {
+            write_file << '\n';
+            continue;
+        }
+
+        line.erase(0, line.find_first_not_of(" \t\n"));
+
+        std::string line_temp;
+        std::unique_copy(line.begin(), line.end(), std::back_insert_iterator<std::string>(line_temp),
+                         [](char a, char b) { return isspace(a) && isspace(b); });
+
+        if (line_temp.length() == 0) {
+            write_file << '\n';
+            continue;
+        }
+
+        parse(write_file, split(line_temp));
     }
 
     printf("[SUCCES] Traducerea a fost finalizata cu succes.\n\n");

@@ -18,12 +18,12 @@ int main(int argc, char *argv[]) {
 
     printf("\n- PSEUDO-COMPILER ---------------------------\n");
     printf("https://github.com/st3ph4nnn/pseudolang\n");
-    printf("Versiunea curenta: 1.2\n");
+    printf("Versiunea curenta: 1.4.75\n");
     printf("Ultima versiune disponibila: https://bit.ly/3L0QyXD\n\n");
 
     printf("Traduc fisierul: %s\n", argv[1]);
     if (arguments::compile)
-        printf("In executabilul: %s\n", argv[3]);
+        printf("Compilez in executabilul: %s\n", argv[3]);
 
     printf("\nArata rezultatul (-i): %s\n", arguments::info == 0 ? "NU" : "DA");
     printf("Compileaza (-o {fisier.exe}): %s\n", arguments::compile == 0 ? "NU" : "DA");
