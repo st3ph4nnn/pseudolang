@@ -4,6 +4,10 @@
 #include "functions/syntax.hpp"
 #include "functions/variables.hpp"
 
+#include <fstream>
+#include <string>
+#include <vector>
+
 void parse(std::ofstream &write, std::vector<std::string> ln) {
     std::string str = "";
 

@@ -1,4 +1,6 @@
-#include "../includes.hpp"
+#pragma once
+#include <string>
+#include <vector>
 
 namespace misc {
     std::vector<std::string> ln;
@@ -21,8 +23,7 @@ namespace misc {
         ln = line;
 
         wr = foloseste();
-        if (wr != " ")
-            return true;
+        if (wr != " ") return true;
 
         return false;
     }

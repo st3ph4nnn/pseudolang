@@ -1,31 +1,25 @@
-```
-                                               __          ___                                
-                                              /\ \        /\_ \                               
-             _____     ____     __   __  __   \_\ \    ___\//\ \      __      ___      __     
-            /\ '__`\  /',__\  /'__`\/\ \/\ \  /'_` \  / __`\\ \ \   /'__`\  /' _ `\  /'_ `\   
-            \ \ \L\ \/\__, `\/\  __/\ \ \_\ \/\ \L\ \/\ \L\ \\_\ \_/\ \L\.\_/\ \/\ \/\ \L\ \  
-             \ \ ,__/\/\____/\ \____\\ \____/\ \___,_\ \____//\____\ \__/.\_\ \_\ \_\ \____ \ 
-              \ \ \/  \/___/  \/____/ \/___/  \/__,_ /\/___/ \/____/\/__/\/_/\/_/\/_/\/___L\ \
-               \ \_\                                                                   /\____/
-                \/_/                                                                   \_/__/ 
-```
-# Ce este pseudolang?
+# pseudolang
 
-pseudolang este o variatie a pseudo-cod-ului din ziua de astazi, putin modificata.  
-pseudocomp este "compilatorul" pentru pseudolang.  
-Avandu-si propia documentatie, si o similaritate de 80% cu pseudo-cod-ul pe care il folosesti in fiecare zi, el poate fi folosit pentru (aproape) orice.  
-pseudocomp poate si traduce, dar si compila pseudolang.
+Pseudolang este o variatie a pseudo-cod-ului din ziua de astazi, putin modificata, construita folosind c++17. 
+Pseudocomp este "compilatorul" pentru pseudolang.
 
-exemplu:
+Câteva lucruri tari pe care pseudolang le poate face: 
+- să traducă cod C++ in Pseudocod
+- să compileze cod Pseudocod
+- să folosească termeni deja întâlniți în C++, precum funcții, librării, etc..
+
+Un scurt exemplu: 
 
 ```c++
+C++
+____________
 foloseste iostream  
 main  
     afiseaza "5\n"  
 incheie  
 
-ECHIVALENT CU, DUPA TRADUCERE:  
-
+Pseudolang
+____________
 #include <iostream>  
 using namespace std;  
 int main() {  
@@ -36,28 +30,27 @@ int main() {
 
 # Cum il pot folosi?
 
-### Online: st3ph4nnn.github.io/pseudolang/ (NU ESTE UPDATAT MEREU!)
-## Offline
-### ATENTIE: DACA VRETI SA COMPILATI CODUL, AVETI NEVOIE DE G++: https://www.youtube.com/watch?v=Zcy981HhGw0 
+### Online
 
-Descarci ultima versiune de fisier executabil de la 'Releases'  
-si il pui intr-un folder. Dupa aceea creezi un fisier, de preferabil, cu extensia .pseudo  
-iar apoi incepi sa codezi. Vezi wiki-ul oficial.
-Pentru a compila/translata, parametrii sunt in felul urmator:  
+Avem site-ul construit folosind Github Pages: https://st3ph4nnn.github.io/pseudolang/ 
+Varianta aceasta este nerecomandată totuși, pentru că poate fi outdated.
 
+### Offline
+
+Pentru a compila codul, mai întai trebuie G++ instalat.
+- Windows: https://www.youtube.com/watch?v=Zcy981HhGw0
+- Linux: (sudo apt install g++ / sudo dnf install g++) etc..
+
+Dacă folosiți Linux, va trebuii să instalați si **make**:  
+**sudo apt install make** / **sudo dnf install make** etc..
+
+Clonați (sau pur și simplu downloadați: https://github.com/st3ph4nnn/pseudolang/archive/refs/heads/main.zip) proiectul.  
+Intrați in folderul proiectului, pseudocomp, build, deschideți CMD/Terminal (in același folder) si executați:  
+- Windows: mingw32-make.exe OS=WIN
+- Linux: make OS=LINUX
+
+Dupa aceea, un fisier executabil va aparea in folderul **build**.  
+Puteti rula un fisier **.pseudo** in felul urmator:  
 ```pseudolang.exe (fisier.pseudo) (args...)```
 
-Cititi mai intai, wiki-ul: https://github.com/st3ph4nnn/pseudolang/wiki
-
-# Cum pot compila compilatorul? (pleonasm)
-
-Modifica codul dupa dorinta ta, iar dupa aceea compileaza-l (in terminal, desigur) folosind:  
-
-```
-Linux: 
-sudo apt install make
-make OS=LINUX (in folderul cu Makefile)
-
-Windows:
-mingw32-make.exe (in folderul cu Makefile)
-```
+Citiți mai întai, wiki-ul: https://github.com/st3ph4nnn/pseudolang/wiki

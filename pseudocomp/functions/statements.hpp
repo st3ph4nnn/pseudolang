@@ -1,5 +1,6 @@
 #pragma once
-#include "../includes.hpp"
+#include <vector>
+#include <string>
 
 namespace statements {
     std::vector<std::string> ln;
@@ -8,9 +9,7 @@ namespace statements {
         if (ln[0] == "daca") {
             if (ln.size() >= 3 && ln[ln.size() - 1] == "atunci") {
                 std::string rtn;
-                for (int i = 1; i < ln.size() - 1; i++)
-                    rtn += ln[i] + " ";
-
+                for (int i = 1; i < ln.size() - 1; i++) rtn += ln[i] + " ";
                 rtn.pop_back();
                 return "if (" + rtn + ") {\n";
             } else {
@@ -39,8 +38,7 @@ namespace statements {
                 return "while (" + rtn + ") {\n";
             } else {
                 printf("[EROARE] 'cat timp' nu a fost folosit corect: ");
-                for (auto i : ln)
-                    printf("%s ", i.c_str());
+                for (auto i : ln) printf("%s ", i.c_str());
                 printf("\nUtilizare: cat timp {parametri} atunci ... sfarsit\n");
                 exit(0);
             }
@@ -57,15 +55,13 @@ namespace statements {
         if (ln[0] == "pana" && ln[1] == "cand") {
             if (ln.size() <= 2) {
                 printf("[EROARE] 'repeta ... pana cand' nu a fost folosit corect: ");
-                for (auto i : ln)
-                    printf("%s ", i.c_str());
+                for (auto i : ln) printf("%s ", i.c_str());
                 printf("\nUtilizare: repeta (instructiuni) ... pana cand {conditie} sfarsit\n");
                 exit(0);
             }
 
             std::string rtn;
-            for (int i = 2; i < ln.size(); i++)
-                rtn += ln[i] + " ";
+            for (int i = 2; i < ln.size(); i++) rtn += ln[i] + " ";
 
             rtn.pop_back();
             return "} while (" + rtn + ");\n";
@@ -115,10 +111,8 @@ namespace statements {
                 return "for (" + start + "; " + condition + "; " + increment + ") {\n";
             } else {
                 printf("[EROARE] 'pentru' nu a fost folosit corect: ");
-                for (auto i : ln)
-                    printf("%s ", i.c_str());
-                printf("\nUtilizare: pentru {val. initiala}, {conditie}, {crestere}, "
-                       "executa ... sfarsit\n");
+                for (auto i : ln) printf("%s ", i.c_str());
+                printf("\nUtilizare: pentru {val. initiala}, {conditie}, {incrementare}, executa ... sfarsit\n");
                 exit(0);
             }
         }
@@ -126,30 +120,21 @@ namespace statements {
         return " ";
     }
 
-    bool run(std::string &wr, std::vector<std::string> line) {
+    bool run(std::string &wr, std::vector<std::string>& line) {
         ln = line;
 
         wr = ifstatement();
-        if (wr != " ") {
-            return true;
-        }
+        if (wr != " ") return true;
 
         wr = whileloop();
-        if (wr != " ") {
-            return true;
-        }
+        if (wr != " ") return true;
 
         wr = forstatement();
-        if (wr != " ") {
-            return true;
-        }
+        if (wr != " ") return true;
 
         wr = dowhilestatement();
-        if (wr != " ") {
-            return true;
-        }
+        if (wr != " ") return true;
 
         return false;
     }
-
-} // namespace statements
+}

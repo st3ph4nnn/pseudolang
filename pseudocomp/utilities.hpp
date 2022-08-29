@@ -1,5 +1,9 @@
 #pragma once
-#include "includes.hpp"
+#include <string>
+#include <vector>
+#include <fstream>
+#include <sstream>
+#include <stdio.h>
 
 namespace arguments {
     bool compile = false;

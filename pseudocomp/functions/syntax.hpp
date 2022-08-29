@@ -1,4 +1,6 @@
-#include "../includes.hpp"
+#pragma once
+#include <vector>
+#include <string>
 
 namespace syntax {
     bool run(std::string &wr, std::vector<std::string> line) {

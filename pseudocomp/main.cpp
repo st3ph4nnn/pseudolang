@@ -18,7 +18,7 @@ int main(int argc, char *argv[]) {
 
     printf("\n- PSEUDO-COMPILER ---------------------------\n");
     printf("https://github.com/st3ph4nnn/pseudolang\n");
-    printf("Versiunea curenta: 1.4.75\n");
+    printf("Versiunea curenta: 1.5\n");
     printf("Ultima versiune disponibila: https://bit.ly/3L0QyXD\n\n");
 
     printf("Traduc fisierul: %s\n", argv[1]);
@@ -54,7 +54,7 @@ int main(int argc, char *argv[]) {
     file.close();
 
     if (arguments::compile) {
-        printf("\n- COMPILE -----------------------------------\n\n");
+        printf("- COMPILE -----------------------------------\n\n");
         printf("[ATENTIE] Unele erori sunt semnalate de translatorul nostru, dar nu TOATE.\n\n");
         compile(arguments::write_file.c_str(), arguments::output_file.c_str());
     }

@@ -1,5 +1,7 @@
 #pragma once
-#include "../includes.hpp"
+#include <vector>
+#include <string>
+#include <algorithm>
 
 namespace variables {
     std::vector<std::string> ln;
@@ -13,16 +15,15 @@ namespace variables {
             "string",
             "char",
         };
+
         return std::count(variables.begin(), variables.end(), x);
     }
 
     std::string declara() {
         if (ln[0] == "declara") {
-            if (ln.size() == 1 || variabila(ln[1]) ||
-                !variabila(ln[ln.size() - 1])) {
+            if (ln.size() == 1 || variabila(ln[1]) || !variabila(ln[ln.size() - 1])) {
                 printf("[EROARE] 'declara' nu a fost folosit corect: ");
-                for (auto i : ln)
-                    printf("%s ", i.c_str());
+                for (auto i : ln) printf("%s ", i.c_str());
                 printf("\nUtilizare: declara {...} {tip} \n");
                 exit(0);
             }
@@ -49,15 +50,13 @@ namespace variables {
         if (ln[0] == "citeste") {
             if (ln.size() == 1) {
                 printf("[EROARE] 'citeste' nu a fost folosit corect: ");
-                for (auto i : ln)
-                    printf("%s ", i.c_str());
+                for (auto i : ln) printf("%s ", i.c_str());
                 printf("\nUtilizare: citeste {var_1} {var_2} ...\n");
                 exit(0);
             }
 
             std::string rtn;
-            for (int i = 1; i < ln.size(); i++)
-                rtn += ln[i] + ">>";
+            for (int i = 1; i < ln.size(); i++) rtn += ln[i] + ">>";
             rtn.pop_back();
             rtn.pop_back();
 
@@ -71,14 +70,11 @@ namespace variables {
         ln = line;
 
         wr = declara();
-        if (wr != " ")
-            return true;
+        if (wr != " ") return true;
 
         wr = citestev();
-        if (wr != " ")
-            return true;
+        if (wr != " ") return true;
         
         return false;
     }
-
 }

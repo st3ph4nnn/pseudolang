@@ -1,0 +1,18 @@
+foloseste iostream
+
+main
+    declara n int
+    citeste n
+    declara x[101] int
+
+    pentru int i = 0, i < n, i++ executa
+        citeste x[i]
+    sfarsit
+
+    pentru int i = 0, i < n, i++ executa
+        daca x[i] % 2 == 0 atunci
+            afiseaza x[i]
+            afiseaza "\n"
+        sfarsit
+    sfarsit
+incheie
