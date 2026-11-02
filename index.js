@@ -8,7 +8,7 @@ const examples = {
         code: [
             "foloseste iostream",
             "main",
-            '    afiseaza "Salut, lume!"',
+            '    afiseaza "Hello, world!"',
             "incheie"
         ].join("\n")
     },
