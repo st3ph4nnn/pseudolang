@@ -132,7 +132,7 @@ const examples = {
             "            ok = 0",
             "        sfarsit",
             "    sfarsit",
-            "    daca ok == 0 atunci",
+            "    daca ok == 1 atunci",
             "        afiseaza \"prim\"",
             "    altfel",
             "        afiseaza \"neprim\"",
