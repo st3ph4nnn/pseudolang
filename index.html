@@ -1,26 +1,294 @@
 <!DOCTYPE html>
-<html>
+<html lang="ro">
 
 <head>
-    <script src="https://cdn.rawgit.com/beautify-web/js-beautify/v1.14.3/js/lib/beautify.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="pseudolang - translator de pseudocod in C++.">
+    <title>pseudolang</title>
     <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-    <div id="input"></div>
-    <div id="output"></div>
+    <header class="header">
+        <div class="header-inner">
+            <span class="logo">pseudolang</span>
+            <nav class="nav" aria-label="Pagini">
+                <button class="nav-btn active" type="button" data-page="translator">Translator</button>
+                <button class="nav-btn" type="button" data-page="documentatie">Documentație</button>
+                <button class="nav-btn" type="button" data-page="despre">Despre</button>
+            </nav>
+        </div>
+    </header>
 
-    <button type="button" id="translate">translate</button>
+    <main class="main">
+        <section class="page active" id="translator">
+            <h1>Translator</h1>
 
-    <h3 id="input-txt">input (pseudolang)</h3>
-    <h3 id="output-txt">(c++) output</h1>
+            <div class="toolbar">
+                <label for="examples">Exemplu:</label>
+                <select id="examples">
+                    <option value="">Alege un exemplu</option>
+                </select>
+                <button class="btn primary" id="translate" type="button">Evaluează</button>
+                <button class="btn" id="copy" type="button">Copiază codul</button>
+                <button class="btn" id="clear" type="button">Șterge</button>
+            </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.43.3/mode-c_cpp.min.js" ,
-            type="text/javascript" charset="utf-8"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.43.3/ace.js" type="text/javascript" charset="utf-8"></script>
-        <script type="module" src="index.js"></script>
+            <div class="editors">
+                <div class="editor">
+                    <div class="editor-title">Pseudocod</div>
+                    <div class="code-editor">
+                        <pre class="highlight" id="input-highlight" aria-hidden="true"></pre>
+                        <textarea id="input" spellcheck="false"
+                            placeholder="Scrie pseudocod aici..."></textarea>
+                    </div>
+                </div>
+
+                <div class="editor">
+                    <div class="editor-title">C++</div>
+                    <div class="code-editor">
+                        <pre class="highlight" id="output-highlight" aria-hidden="true"></pre>
+                        <textarea id="output" spellcheck="false" readonly
+                            placeholder="Codul C++ va apărea aici..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="status">
+                <strong>Status:</strong>
+                <span id="status">Pregătit.</span>
+            </div>
+        </section>
+
+        <section class="page" id="documentatie">
+            <h1>Documentație</h1>
+            <p class="intro">
+                Aici sunt comenzile de bază ale limbajului pseudolang și echivalentul lor în C++.
+            </p>
+
+            <h2>Comenzi</h2>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>pseudolang</th>
+                            <th>Ce face</th>
+                            <th>C++</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>foloseste iostream</code></td>
+                            <td>Include o bibliotecă</td>
+                            <td><code>#include &lt;iostream&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>declara varsta int</code></td>
+                            <td>Declară o variabilă (tipul se scrie la final)</td>
+                            <td><code>int varsta;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>citeste varsta</code></td>
+                            <td>Citește o valoare</td>
+                            <td><code>cin &gt;&gt; varsta;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>afiseaza "Salut"</code></td>
+                            <td>Afișează text sau o expresie</td>
+                            <td><code>cout &lt;&lt; "Salut";</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>daca nota &gt;= 5 atunci</code></td>
+                            <td>Începe o decizie</td>
+                            <td><code>if (nota &gt;= 5) {</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>altfel</code></td>
+                            <td>Ramura alternativă</td>
+                            <td><code>} else {</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>cat timp i &lt; 10 atunci</code></td>
+                            <td>Buclă condiționată</td>
+                            <td><code>while (i &lt; 10) {</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>pentru i = 0, i &lt; 5, i++ executa</code></td>
+                            <td>Buclă cu număr cunoscut de pași</td>
+                            <td><code>for (i = 0; i &lt; 5; i++) {</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>executa</code></td>
+                            <td>Începutul unei bucle do...while</td>
+                            <td><code>do {</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>pana cand i == 5</code></td>
+                            <td>Condiția de oprire a buclei</td>
+                            <td><code>} while (i == 5);</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>main</code></td>
+                            <td>Funcția principală</td>
+                            <td><code>int main() {</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>sfarsit</code> / <code>gata</code></td>
+                            <td>Închide un bloc de cod</td>
+                            <td><code>}</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>inapoiaza rezultat</code></td>
+                            <td>Returnează o valoare</td>
+                            <td><code>return rezultat;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>incheie</code></td>
+                            <td>Încheie programul</td>
+                            <td><code>return 0; }</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Exemplu</h2>
+            <p>Programul citește o notă și verifică dacă elevul a promovat.</p>
+
+            <h3>pseudolang</h3>
+            <pre class="code-block"><code data-lang="pseudolang">foloseste iostream
+main
+    declara nota int
+    citeste nota
+    daca nota &gt;= 5 atunci
+        afiseaza "Promovat"
+    altfel
+        afiseaza "Nepromovat"
+    sfarsit
+incheie</code></pre>
+
+            <h3>C++</h3>
+            <pre class="code-block"><code data-lang="cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+int main()
+{
+    int nota;
+    cin &gt;&gt; nota;
+    if (nota &gt;= 5) {
+        cout &lt;&lt; "Promovat";
+    } else {
+        cout &lt;&lt; "Nepromovat";
+    }
+    return 0;
+}</code></pre>
+
+            <h2>De reținut</h2>
+            <ul class="rules">
+                <li>Scrie o instrucțiune pe fiecare linie, fără punct și virgulă.</li>
+                <li>Bibliotecile se pun la început, cu <code>foloseste</code>. Poți pune mai multe pe
+                    aceeași linie: <code>foloseste iostream string</code>.</li>
+                <li>La <code>declara</code>, tipul se scrie la final: <code>declara varsta int</code>.
+                    Poți declara mai multe variabile deodată: <code>declara a b int</code>.</li>
+                <li>Poți declara un vector: <code>declara v[10] int</code>.</li>
+                <li>Condițiile se termină cu <code>atunci</code>, iar blocul se închide cu
+                    <code>sfarsit</code> sau <code>gata</code>.</li>
+                <li>La <code>pentru</code>, părțile se despart prin virgule.</li>
+                <li>Programul începe cu <code>main</code> și se termină cu <code>incheie</code>.</li>
+                <li>Pentru indentare folosește <code>Tab</code> și <code>Shift+Tab</code>.</li>
+                <li>Translatorul adaugă automat <code>using namespace std;</code>, deci poți scrie
+                    <code>cout</code> și <code>cin</code> direct.</li>
+            </ul>
+
+            <p class="types">
+                Tipuri acceptate: <code>int</code>, <code>float</code>, <code>double</code>,
+                <code>char</code>, <code>bool</code>, <code>string</code>.
+            </p>
+        </section>
+
+        <section class="page" id="despre">
+            <h1>Despre</h1>
+            <p class="intro">
+                Pseudolang transformă pseudocodul în C++. Scrii în română, apeși „Evaluează” și
+                primești codul C++ în aceeași pagină.
+            </p>
+            <p class="intro">
+                Site-ul este făcut pentru orele de informatică și pentru cei care fac primii pași în
+                C++. Nu trebuie să instalezi nimic, totul merge direct în browser.
+            </p>
+
+            <h2>Cum funcționează</h2>
+            <p class="intro">
+                Fiecare linie din caseta de pseudocod este citită separat. Dacă linia începe cu
+                „afiseaza”, în C++ apare „cout”. Dacă începe cu „daca”, apare „if”.
+            </p>
+            <p class="intro">
+                Restul liniilor sunt transformate la fel, după reguli simple. La final, codul este
+                indentat și colorat, ca să fie ușor de citit.
+            </p>
+            <p class="intro">
+                Totul se întâmplă în browser, fără server. Rezultatul poate fi copiat și lipit
+                într-un editor C++.
+            </p>
+
+            <h2>Cum se folosește</h2>
+            <p class="intro">
+                Alege un exemplu din meniu sau scrie codul tău în caseta din stânga.
+            </p>
+            <p class="intro">
+                Apasă „Evaluează”, iar codul C++ apare în dreapta. Cu „Copiază codul” îl poți lua și
+                lipi într-un editor C++.
+            </p>
+            <p class="intro">
+                Poți schimba oricând exemplul sau poți șterge tot cu butonul „Șterge”.
+            </p>
+
+            <h2>De ce l-am făcut</h2>
+            <p class="intro">
+                Site-ul original a fost realizat în 2022, pornind de la ideea programului original.
+                Această variantă păstrează aceeași idee, dar interfața a fost refăcută.
+            </p>
+            <p class="intro">
+                Proiectul a fost făcut pentru atestatul la Informatică. Pseudocodul este mai ușor de
+                citit, iar site-ul arată direct cum arată aceeași idee în C++.
+            </p>
+            <p class="intro">
+                Scopul este să fie de ajutor celor care învață programare și vor să treacă mai ușor
+                de la pseudocod la C++.
+            </p>
+
+            <h2>Unde este publicat</h2>
+            <p class="intro">
+                Site-ul este găzduit pe GitHub Pages, iar codul sursă este public pe
+                <a href="https://github.com/st3ph4nnn/pseudolang/" target="_blank"
+                    rel="noopener">GitHub</a>.
+            </p>
+            <p class="intro">
+                Poți vedea exact cum este făcut și poți învăța din el.
+            </p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <p class="footer-contact">
+                Site realizat pentru examenul de obținere a atestatului profesional în Informatică.<br>
+                Realizator: Arteni Ștefan-Viorel<br>
+                Clasa: a XII-a A<br>
+                Profesor coordonator: Uriciuc Anca-Mihaela<br>
+                Liceul Teoretic Dimitrie Cantemir Iași
+            </p>
+            <p class="project-link">
+                Proiect original:
+                <a href="https://github.com/st3ph4nnn/pseudolang/" target="_blank"
+                    rel="noopener">https://github.com/st3ph4nnn/pseudolang/</a>
+            </p>
+        </div>
+    </footer>
+
+    <script type="module" src="index.js"></script>
 </body>
 
 </html>
