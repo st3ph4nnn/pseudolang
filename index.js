@@ -120,14 +120,22 @@ const examples = {
         ].join("\n")
     },
     multiplication: {
-        name: "Tabla înmulțirii",
+        name: "Verificare număr prim",
         code: [
             "foloseste iostream",
             "main",
-            "    pentru int i = 1, i <= 3, i++ executa",
-            "        pentru int j = 1, j <= 3, j++ executa",
-            "            afiseaza i * j",
+            "    declara x ok int",
+            "    citeste x",
+            "    ok = 1",
+            "    pentru int d = 2, d*d <= n, d++ executa",
+            "        daca x%d == 0 atunci",
+            "            ok = 0",
             "        sfarsit",
+            "    sfarsit",
+            "    daca ok == 0 atunci",
+            "        afiseaza \"prim\"",
+            "    altfel",
+            "        afiseaza \"neprim\"",
             "    sfarsit",
             "incheie"
         ].join("\n")
@@ -448,7 +456,7 @@ function indentCode(code) {
 
 function translateCode() {
     if (!input.value.trim()) {
-        setStatus("Scrie mai întâi cod Pseudolang.", "error");
+        setStatus("Scrie mai întâi cod Pseudolang!", "error");
         return;
     }
 
@@ -464,19 +472,19 @@ function translateCode() {
         renderHighlights();
 
         if (output.value.trim()) {
-            setStatus("Traducere reușită.", "success");
+            setStatus("Traducere reușită!", "success");
         } else {
-            setStatus("Nu s-a putut traduce. Verifică sintaxa.", "error");
+            setStatus("Nu s-a putut traduce! Verifică sintaxa!", "error");
         }
     } catch (error) {
         console.error(error);
-        setStatus("A apărut o eroare la traducere.", "error");
+        setStatus("A apărut o eroare la traducere!", "error");
     }
 }
 
 async function copyCode() {
     if (!output.value.trim()) {
-        setStatus("Nu există cod de copiat.", "error");
+        setStatus("Nu există cod de copiat!", "error");
         return;
     }
 
@@ -485,12 +493,12 @@ async function copyCode() {
     } catch (error) {
         output.select();
         if (!document.execCommand("copy")) {
-            setStatus("Copierea nu a funcționat.", "error");
+            setStatus("Copierea nu a funcționat!", "error");
             return;
         }
     }
 
-    setStatus("Codul C++ a fost copiat.", "success");
+    setStatus("Codul C++ a fost copiat!", "success");
 }
 
 function clearEditor() {
@@ -498,7 +506,7 @@ function clearEditor() {
     output.value = "";
     exampleSelect.value = "";
     renderHighlights();
-    setStatus("Editor golit.");
+    setStatus("Editor golit!");
     input.focus();
 }
 
